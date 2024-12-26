@@ -9,18 +9,23 @@ const config = getDefaultConfig(__dirname);
 const myExtraModuleDir = path.resolve(__dirname, "../nr-common/");
 const extraNodeModules = {
   "nr-common": myExtraModuleDir,
+  zod: path.resolve(myExtraModuleDir, "node_modules/zod"),
 };
 
 const extraConfig = {
   watchFolders: [myExtraModuleDir],
   resolver: {
     extraNodeModules: new Proxy(extraNodeModules, {
-      get: (target, name) =>
-        // redirects dependencies referenced from myExtraModule/ to local node_modules
-        name in target
+      get: (target, name) => {
+        console.log("Getting");
+        console.log(target, name);
+        return name in target
           ? target[name]
-          : path.join(process.cwd(), `node_modules/${name}`),
+          : path.join(process.cwd(), `node_modules/${name}`);
+      },
+      // redirects dependencies referenced from myExtraModule/ to local node_modules
     }),
+    nodeModulesPaths: [path.resolve(myExtraModuleDir, "node_modules")],
   },
   resetCache: true,
 };

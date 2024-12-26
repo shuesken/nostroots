@@ -22,6 +22,8 @@
     "jsr:@ts-morph/bootstrap@0.24": "0.24.0",
     "jsr:@ts-morph/common@0.24": "0.24.0",
     "npm:@babel/runtime@^7.26.0": "7.26.0",
+    "npm:@types/node@^20.9.0": "20.17.10",
+    "npm:picocolors@1": "1.1.1",
     "npm:zod@^3.23.8": "3.23.8"
   },
   "jsr": {
@@ -128,8 +130,20 @@
         "regenerator-runtime"
       ]
     },
+    "@types/node@20.17.10": {
+      "integrity": "sha512-/jrvh5h6NXhEauFFexRin69nA0uHJ5gwk4iDivp/DeoEua3uwCUto6PC86IpRITBOs4+6i2I56K5x5b6WYGXHA==",
+      "dependencies": [
+        "undici-types"
+      ]
+    },
+    "picocolors@1.1.1": {
+      "integrity": "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA=="
+    },
     "regenerator-runtime@0.14.1": {
       "integrity": "sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw=="
+    },
+    "undici-types@6.19.8": {
+      "integrity": "sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw=="
     },
     "zod@3.23.8": {
       "integrity": "sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g=="
@@ -140,6 +154,13 @@
       "jsr:@deno/dnt@~0.41.3",
       "npm:@babel/runtime@^7.26.0",
       "npm:zod@^3.23.8"
-    ]
+    ],
+    "packageJson": {
+      "dependencies": [
+        "npm:@types/node@^20.9.0",
+        "npm:picocolors@1",
+        "npm:zod@^3.23.8"
+      ]
+    }
   }
 }

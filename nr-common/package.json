@@ -10,7 +10,7 @@
   "bugs": {
     "url": "https://github.com/username/repo/issues"
   },
-  "main": "./script/mod.js",
+  "main": "mod.ts",
   "module": "./esm/mod.js",
   "exports": {
     ".": {
