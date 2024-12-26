@@ -18,9 +18,6 @@ module.exports = function (api) {
             ".tsx",
           ],
           root: ["."],
-          alias: {
-            "@common": "../nr-common",
-          },
         },
       ],
     ],

@@ -1,5 +1,5 @@
-import { DEFAULT_RELAY_URL } from "@common/constants";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { DEFAULT_RELAY_URL } from "nr-common";
 import { Filter } from "nostr-tools";
 
 type RelayNotice = {
