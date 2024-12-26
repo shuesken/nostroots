@@ -1,15 +1,26 @@
 // Learn more https://docs.expo.io/guides/customizing-metro
-const { getDefaultConfig } = require("expo/metro-config");
+const { getDefaultConfig, mergeConfig } = require("expo/metro-config");
 const path = require("path");
+const fs = require("fs");
 
 /** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(__dirname);
 
+const myExtraModuleDir = path.resolve(__dirname, "../nr-common/");
+const extraNodeModules = {
+  "nr-common": myExtraModuleDir,
+};
+
 const extraConfig = {
-  watchFolders: [path.resolve(`${__dirname}/../nr-common/`)],
+  watchFolders: [myExtraModuleDir],
   resolver: {
-    // extraNodeModules: { "nr-common": `${__dirname}/../nr-common/nr-common` },
-    enableGlobalPackages: true,
+    extraNodeModules: new Proxy(extraNodeModules, {
+      get: (target, name) =>
+        // redirects dependencies referenced from myExtraModule/ to local node_modules
+        name in target
+          ? target[name]
+          : path.join(process.cwd(), `node_modules/${name}`),
+    }),
   },
   resetCache: true,
 };
