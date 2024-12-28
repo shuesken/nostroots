@@ -1,5 +1,5 @@
 // Learn more https://docs.expo.io/guides/customizing-metro
-const { getDefaultConfig, mergeConfig } = require("expo/metro-config");
+const { getDefaultConfig } = require("expo/metro-config");
 const path = require("path");
 const fs = require("fs");
 
